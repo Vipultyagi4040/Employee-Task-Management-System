@@ -46,10 +46,9 @@ function AddAttendanceModal({ isOpen, onClose }) {
         const formattedTime = `${date.getHours()}:${date.getMinutes()} ${date.getHours() >= 12 ? 'PM' : 'AM'}`;
         return formattedTime;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
-        getEmployees()
-    }, [])
+         getEmployees()
+     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleSubmit = async (e) => {
         e.preventDefault();

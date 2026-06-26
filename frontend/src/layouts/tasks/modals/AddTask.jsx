@@ -61,11 +61,10 @@ function AddTaskModal({ isOpen, onClose }) {
             console.error('Error:', error);
         }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
-        getEmployees()
-        getProjects()
-    }, [])
+         getEmployees()
+         getProjects()
+     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
 
     const handleSubmit = async (e) => {

@@ -55,11 +55,10 @@ const getTimesheetsStats = async () => {
       console.error('Error:', error);
     }
   }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => {
-    getTimesheets()
-    getTimesheetsStats()
-  }, [])
+useEffect(() => {
+     getTimesheets()
+     getTimesheetsStats()
+   }, []) // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <>
       <AddTimesheetModal isOpen={isAddTimesheetModalOpen} onClose={closeAddTimesheetModal} />
