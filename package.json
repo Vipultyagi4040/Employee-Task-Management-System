@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "MERN Stack Task Management System",
   "scripts": {
-    "start": "node backend/app.js",
+    "start": "cd backend && node app.js",
     "build": "cd frontend && npm install && npm run build",
-    "install": "cd backend && npm install"
+    "backend": "cd backend && npm install",
+    "frontend": "cd frontend && npm install"
   },
   "author": "Vipul Tyagi"
 }
