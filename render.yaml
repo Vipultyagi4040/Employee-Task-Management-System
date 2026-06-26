@@ -6,6 +6,8 @@ services:
     startCommand: cd backend && npm install && node app.js
     rootDir: .
     envVars:
+      - key: NODE_VERSION
+        value: 18.17.1
       - key: MONGODB_URI
         value: mongodb://vipultoppa:gSpFjM3rPDvudh8g@cluster0-shard-00-00.n7s5c.mongodb.net:27017,cluster0-shard-00-01.n7s5c.mongodb.net:27017,cluster0-shard-00-02.n7s5c.mongodb.net:27017/?ssl=true&replicaSet=atlas-kr78k1-shard-0&authSource=admin&appName=Cluster0
       - key: JWT_SECRET_KEY
