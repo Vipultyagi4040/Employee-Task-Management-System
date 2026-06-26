@@ -23,21 +23,21 @@ import axios from 'axios';
 
 
 function Timesheets() {
-  const [isAddTimesheetModalOpen, setIsAddTimesheetModalOpen] = useState(false);
-  const [timesheetsData, setTimesheetsData] = useState([]);
-  const [timesheetsStats, setTimesheetsStats] = useState({
-    totalTimesheets: 0,
-    developmentType: 0,
-    testType: 0,
-    otherType: 0,
-  });
-  const openAddTimesheetModal = () => {
-    setIsAddTimesheetModalOpen(true);
-  };
+   const [isAddTimesheetModalOpen, setIsAddTimesheetModalOpen] = useState(false);
+   const [timesheetsData, setTimesheetsData] = useState([]);
+   const [timesheetsStats, setTimesheetsStats] = useState({
+     totalTimesheets: 0,
+     developmentType: 0,
+     testType: 0,
+     otherType: 0,
+   });
+   const openAddTimesheetModal = () => {
+     setIsAddTimesheetModalOpen(true);
+   };
 
-  const closeAddTimesheetModal = () => {
-    setIsAddTimesheetModalOpen(false);
-  };
+   const closeAddTimesheetModal = () => {
+     setIsAddTimesheetModalOpen(false);
+   };
 
 const getTimesheets = async () => {
      try {
@@ -55,6 +55,7 @@ const getTimesheetsStats = async () => {
       console.error('Error:', error);
     }
   }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     getTimesheets()
     getTimesheetsStats()

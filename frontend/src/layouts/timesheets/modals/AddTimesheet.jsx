@@ -71,6 +71,7 @@ function AddTimesheetModal({ isOpen, onClose }) {
             console.error('Error:', error);
         }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         getEmployees()
         getProjects()

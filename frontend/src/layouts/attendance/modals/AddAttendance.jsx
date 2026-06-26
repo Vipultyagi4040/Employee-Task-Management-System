@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
     Modal,
     ModalOverlay,
@@ -27,14 +27,14 @@ function AddAttendanceModal({ isOpen, onClose }) {
             Authorization: `Bearer ${token}`
         },
     });
-    const getEmployees = async () => {
+    const getEmployees = useCallback(async () => {
         try {
             const response = await axiosInstance.get('api/employees')
             setEmployeesData(response.data)
         } catch (error) {
             console.error('Error:', error);
         }
-    }
+    }, [axiosInstance])
     const getCurrentDate = () => {
         const date = new Date();
         const formattedDate = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
@@ -46,6 +46,7 @@ function AddAttendanceModal({ isOpen, onClose }) {
         const formattedTime = `${date.getHours()}:${date.getMinutes()} ${date.getHours() >= 12 ? 'PM' : 'AM'}`;
         return formattedTime;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         getEmployees()
     }, [])
