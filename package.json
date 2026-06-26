@@ -3,13 +3,9 @@
   "version": "1.0.0",
   "description": "MERN Stack Task Management System",
   "scripts": {
-    "start": "node backend/app.js",
     "build": "cd frontend && npm install && npm run build",
-    "install": "cd backend && npm install",
-    "backend": "cd backend && npm install && node app.js",
-    "frontend": "cd frontend && npm install"
+    "start": "cd backend && npm install --production=false && node app.js"
   },
   "author": "Vipul Tyagi",
-  "license": "MIT",
-  "dependencies": {}
+  "license": "MIT"
 }

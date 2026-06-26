@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: employee-task-management-backend
+    env: node
+    buildCommand: npm install --prefix backend
+    startCommand: cd backend && node app.js
+    rootDir: .
