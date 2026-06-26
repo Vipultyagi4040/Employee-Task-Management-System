@@ -39,6 +39,7 @@ function AddTaskModal({ isOpen, onClose }) {
 
     const token = localStorage.getItem("tm_token");
     const axiosInstance = axios.create({
+        baseURL: process.env.REACT_APP_API_URL,
         headers: {
             Authorization: `Bearer ${token}`
         },
@@ -46,7 +47,7 @@ function AddTaskModal({ isOpen, onClose }) {
 
     const getEmployees = async () => {
         try {
-            const response = await axios.get('api/employees')
+            const response = await axiosInstance.get('api/employees')
             setEmployeesData(response.data)
         } catch (error) {
             console.error('Error:', error);
@@ -54,7 +55,7 @@ function AddTaskModal({ isOpen, onClose }) {
     }
     const getProjects = async () => {
         try {
-            const response = await axios.get('api/projects')
+            const response = await axiosInstance.get('api/projects')
             setProjectsData(response.data)
         } catch (error) {
             console.error('Error:', error);

@@ -17,8 +17,8 @@ function Sidenav() {
     <div className='sidenav-main-container'>
       <div className='sidenav-profile-container'>
         <img className='sidenav-profile-img' src={profile} alt="Profile" />
-        <p className='sidenav-profile-name'>Sundar Gurung</p>
-        <p className='sidenav-profile-email'>sundargurung360@gmail.com</p>
+<p className='sidenav-profile-name'>Vipul Tyagi</p>
+         <p className='sidenav-profile-email'>vipultyagi4040@gmail.com</p>
       </div>
       <div className='sidenav-list-main-container'>
         <Link to="/admin/dashboard"><div className={`sidenav-list ${location.pathname === "/admin/dashboard" ? "default-hover" : ""}`}><span><MdDashboard className='sidenav-icon' /></span><p className='sidenav-list-text'>Dashboard</p></div></Link>

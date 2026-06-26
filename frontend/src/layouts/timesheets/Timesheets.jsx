@@ -21,6 +21,7 @@ import { FcStatistics } from "react-icons/fc";
 import AddTimesheetModal from './modals/AddTimesheet';
 import axios from 'axios';
 
+
 function Timesheets() {
   const [isAddTimesheetModalOpen, setIsAddTimesheetModalOpen] = useState(false);
   const [timesheetsData, setTimesheetsData] = useState([]);
@@ -38,17 +39,17 @@ function Timesheets() {
     setIsAddTimesheetModalOpen(false);
   };
 
-  const getTimesheets = async () => {
-    try {
-      const response = await axios.get('api/timesheets')
+const getTimesheets = async () => {
+     try {
+       const response = await axios.get('/api/timesheets')
       setTimesheetsData(response.data)
     } catch (error) {
       console.error('Error:', error);
     }
   }
-  const getTimesheetsStats = async () => {
-    try {
-      const response = await axios.get('api/timesheets-stats')
+const getTimesheetsStats = async () => {
+     try {
+       const response = await axios.get('/api/timesheets-stats')
       setTimesheetsStats(response.data)
     } catch (error) {
       console.error('Error:', error);
@@ -123,63 +124,21 @@ function Timesheets() {
                   <Th>Action</Th>
                 </Tr>
               </Thead>
-              <Tbody>
-                <Tr>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                </Tr>
-                <Tr>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                </Tr>
-                <Tr>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                </Tr>
-                <Tr>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                </Tr>
-                <Tr>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                  <Td>inches</Td>
-                </Tr>
-              </Tbody>
+<Tbody>
+                 {timesheetsData && timesheetsData.map((timesheet) => (
+                   <Tr key={timesheet._id}>
+                     <Td>{timesheet.notes}</Td>
+                     <Td>{timesheet.employee?.firstName} {timesheet.employee?.lastName}</Td>
+                     <Td>{timesheet.project?.title}</Td>
+                     <Td>{timesheet.task?.title}</Td>
+                     <Td>{timesheet.progress}%</Td>
+                     <Td>{timesheet.timeSpent}h</Td>
+                     <Td>{timesheet.date}</Td>
+                     <Td>{timesheet.type}</Td>
+                     <Td>Button</Td>
+                   </Tr>
+                 ))}
+               </Tbody>
             </Table>
           </TableContainer>
         </div>

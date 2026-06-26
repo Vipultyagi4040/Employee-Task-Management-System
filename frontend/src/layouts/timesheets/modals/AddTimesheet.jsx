@@ -29,7 +29,7 @@ function AddTimesheetModal({ isOpen, onClose }) {
         task: '',
         progress: '',
         timeSpent: '',
-        createdDate: '',
+        date: '',
         type: 'Development'
     });
 
@@ -41,6 +41,7 @@ function AddTimesheetModal({ isOpen, onClose }) {
     };
     const token = localStorage.getItem("tm_token");
     const axiosInstance = axios.create({
+        baseURL: process.env.REACT_APP_API_URL,
         headers: {
             Authorization: `Bearer ${token}`
         },
@@ -48,7 +49,7 @@ function AddTimesheetModal({ isOpen, onClose }) {
 
     const getEmployees = async () => {
         try {
-            const response = await axios.get('api/employees')
+            const response = await axiosInstance.get('api/employees')
             setEmployeesData(response.data)
         } catch (error) {
             console.error('Error:', error);
@@ -56,7 +57,7 @@ function AddTimesheetModal({ isOpen, onClose }) {
     }
     const getProjects = async () => {
         try {
-            const response = await axios.get('api/projects')
+            const response = await axiosInstance.get('api/projects')
             setProjectsData(response.data)
         } catch (error) {
             console.error('Error:', error);
@@ -64,7 +65,7 @@ function AddTimesheetModal({ isOpen, onClose }) {
     }
     const getTasks = async () => {
         try {
-            const response = await axios.get('api/tasks')
+            const response = await axiosInstance.get('api/tasks')
             setTasksData(response.data)
         } catch (error) {
             console.error('Error:', error);

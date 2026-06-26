@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Sidenav from '../../components/sidenav/Sidenav'
 import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
 import "./dashboard.css"
@@ -10,21 +10,9 @@ import totalpending from '../../assets/tasks/totalpending.png';
 import totalcomplete from '../../assets/tasks/totalcomplete.png';
 import { FcStatistics } from "react-icons/fc";
 import Navbar from '../../components/navbar/Navbar';
-import axios from 'axios';
 
 function Dashboard() {
-  const [dashboardData, setDashboardData] = useState([]);
-
-  const getDashboard = async () => {
-    const response = await axios.get('api/dashboard')
-    setDashboardData(response.data)
-  }
-  useEffect(() => {
-    getDashboard()
-  }, [])
-  
-
-  return (
+   return (
     <>
       <div className='app-main-container'>
         <div className='app-main-left-container'><Sidenav /></div>

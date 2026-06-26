@@ -45,6 +45,7 @@ function AddEmployeeModal({ isOpen, onClose }) {
     };
     const token = localStorage.getItem("tm_token");
     const axiosInstance = axios.create({
+        baseURL: process.env.REACT_APP_API_URL,
         headers: {
             Authorization: `Bearer ${token}`
         },

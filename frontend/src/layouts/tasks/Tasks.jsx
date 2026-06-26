@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Sidenav from '../../components/sidenav/Sidenav'
 import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
 import "./tasks.css"
@@ -18,7 +18,6 @@ import {
 import AddTaskModal from './modals/AddTask';
 import ReadTaskModal from './modals/ReadTask';
 import { IoMdAdd } from "react-icons/io";
-import axios from 'axios';
 
 function Tasks() {
     const [isAddTaskModalOpen, setIsAddTaskModalOpen] = useState(false);

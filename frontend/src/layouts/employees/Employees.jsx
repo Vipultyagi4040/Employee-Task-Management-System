@@ -39,17 +39,17 @@ function Employees() {
     setIsAddEmployeeModalOpen(false);
   };
 
-  const getEmployees = async () => {
-    try {
-      const response = await axios.get('api/employees')
+const getEmployees = async () => {
+     try {
+       const response = await axios.get('/api/employees')
       setEmployeesData(response.data)
     } catch (error) {
       console.error('Error:', error);
     }
   }
-  const getEmployeesStats = async () => {
-    try {
-      const response = await axios.get('api/employees-stats')
+const getEmployeesStats = async () => {
+     try {
+       const response = await axios.get('/api/employees-stats')
       setEmployeesStats(response.data)
     } catch (error) {
       console.error('Error:', error);
