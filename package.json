@@ -1,0 +1,11 @@
+{
+  "name": "employee-task-management-system",
+  "version": "1.0.0",
+  "description": "MERN Stack Task Management System",
+  "scripts": {
+    "start": "node backend/app.js",
+    "build": "cd frontend && npm install && npm run build",
+    "install": "cd backend && npm install"
+  },
+  "author": "Vipul Tyagi"
+}

@@ -1,0 +1,17 @@
+# dependencies
+/node_modules
+
+# build
+/frontend/build
+
+# env files - keep backend/.env for Render
+.env
+.env.local
+
+# logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
